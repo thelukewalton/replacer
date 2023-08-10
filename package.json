@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "replace-in-file": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.9",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.1",
+    "typescript": "^5.1.6"
+  }
+}
