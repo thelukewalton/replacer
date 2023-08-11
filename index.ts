@@ -123,7 +123,7 @@ const runReplacer = async (
     })
     .join("");
 
-  process.stdout.write(output);
+  process.stdout.write(`${output}\n`);
   if (dry) {
     process.stdout.write(`\n\n${count} files to be changed\n\n`);
   } else {
@@ -175,15 +175,15 @@ if (argv.h) {
   try {
     allowedExtensions = argv.ext != undefined ? argv.ext.split(",") : [];
   } catch (err) {
-    process.stdout.write("Error: allowed extensions bad format");
-    if (argv.d) process.stdout.write(`\n\n${err}`);
+    process.stdout.write("Error: allowed extensions bad format\n");
+    if (argv.d) process.stdout.write(`\n\n${err}\n`);
   }
   try {
     disallowedExtensions =
       argv.notext != undefined ? argv.notext.split(",") : [];
   } catch (err) {
-    process.stdout.write("Error: disallowed extensions bad format");
-    if (argv.d) process.stdout.write(`\n\n${err}`);
+    process.stdout.write("Error: disallowed extensions bad format\n");
+    if (argv.d) process.stdout.write(`\n\n${err}\n`);
   }
 
   if (argv.in != undefined && argv.in.includes(".json")) {
@@ -199,13 +199,13 @@ if (argv.h) {
       });
       to = Object.values(variables);
     } catch (err) {
-      process.stdout.write("Error: Input file error");
-      if (argv.d) process.stdout.write(`\n\n${err}`);
+      process.stdout.write("Error: Input file error\n");
+      if (argv.d) process.stdout.write(`\n${err}\n`);
     }
 
     if (argv.d) {
       process.stdout.write(
-        `\n\ndirectory: ${dir}\n\nshowHidden: ${showHidden}\n\nextensions: ${allowedExtensions}\n\ndisallowed extensions: ${disallowedExtensions}\n\nparams from: ${from}\n\nparams to: ${to}`
+        `\n\ndirectory: ${dir}\n\nshowHidden: ${showHidden}\n\nextensions: ${allowedExtensions}\n\ndisallowed extensions: ${disallowedExtensions}\n\nparams from: ${from}\n\nparams to: ${to}\n\n`
       );
     }
 
@@ -219,6 +219,6 @@ if (argv.h) {
       argv.dry ?? false
     );
   } else {
-    process.stdout.write("Error: Input file error");
+    process.stdout.write("Error: Input file error\n");
   }
 }

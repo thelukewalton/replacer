@@ -8,5 +8,8 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "build": "rm -rf dist & ncc build index.ts -o dist && cd dist && pkg index.js -t node18-windows -o replacer_win && pkg index.js -t node18-macos -o replacer_mac.bin && rm index.js"
   }
 }
